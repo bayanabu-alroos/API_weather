@@ -23,6 +23,6 @@ fetch(
             day: "numeric", month: "short", year: "numeric"
             }).replace(/ /g, '-');;
         document.querySelector(".weather-desc").textContent=data.weather[0].main ;
-        document.querySelector(".week-container  .day-name").textContent = day.toLocaleString("en-us", { weekday: "long" });
-    
+        document.querySelector(".week-container .week-list .day-name").textContent = day.toLocaleString("en-us", { weekday: "long" });
+        document.querySelector(".week-container .week-list .day-temp").textContent = (data.main.temp.toFixed(0)+"°C");
     })})
