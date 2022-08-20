@@ -13,7 +13,7 @@ fetch(
     .then((data) => {
         console.log(data);
         const day = new Date();
-        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var days = [ "Fri", "Sat","Sun", "Mon", "Tue", "Wed", "Thu"];
         document.querySelector(".wind .value").textContent = (data.wind.speed);
         document.querySelector(".humidity .value").textContent = (data.main.humidity+"%");
         document.querySelector(".pressure .value").textContent = (data.main.pressure+"%") ;
@@ -24,13 +24,13 @@ fetch(
             day: "numeric", month: "short", year: "numeric"
             }).replace(/ /g, '-');;
         document.querySelector(".weather-desc").textContent=data.weather[0].main ;
-        document.querySelector(".week-container .week-list .day-name").textContent = days[new Date().getDay()];
+        document.querySelector(".week-container .week-list .day-name").textContent = days[new Date().getDay()-5];
         document.querySelector(".week-container .week-list .day-temp").textContent = (data.main.temp.toFixed(0)+"°C");
-        document.querySelector(".week-container .week-list .day1").textContent = days[new Date().getDay()+1];
+        document.querySelector(".week-container .week-list .day1").textContent = days[new Date().getDay()-4];
         document.querySelector(".week-container .week-list .temp1").textContent = (data.main.temp.toFixed(0)+"°C");
-        document.querySelector(".week-container .week-list .day2").textContent = days[new Date().getDay()-5];
+        document.querySelector(".week-container .week-list .day2").textContent = days[new Date().getDay()-3];
         document.querySelector(".week-container .week-list .temp2").textContent = (data.main.temp.toFixed(0)+"°C");
-        document.querySelector(".week-container .week-list .day3").textContent = days[new Date().getDay()-4];
+        document.querySelector(".week-container .week-list .day3").textContent = days[new Date().getDay()-2];
         document.querySelector(".week-container .week-list .temp3").textContent = (data.main.temp.toFixed(0)+"°C");
 
     })})
